@@ -1,4 +1,4 @@
-# 2D_RGP_example_sdl2
+# Action Game
 
 ## Dependencies
 
