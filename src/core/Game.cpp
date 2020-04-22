@@ -18,14 +18,14 @@ int Game::onExecute() {
     this->check();
 
     RenderWindow window(name, width, height);
-    SDL_Texture* playerTexture = window.loadTexture("../res/gfx/main.png");
+    SDL_Texture *playerTexture = window.loadTexture("../res/gfx/main.png");
     Entity player(100, height - 50 * 4, playerTexture);
-    player.setCurrentFrame(160,0,35,50);
+    player.setCurrentFrame(160, 0, 35, 50);
 
     SDL_Event Event;
 
-    while (running){
-        while(SDL_PollEvent(&Event)) {
+    while (running) {
+        while (SDL_PollEvent(&Event)) {
             OnEvent(&Event);
         }
 
@@ -40,8 +40,8 @@ int Game::onExecute() {
     return 0;
 }
 
-void Game::OnEvent(SDL_Event* Event) {
-    if(Event->type == SDL_QUIT) {
+void Game::OnEvent(SDL_Event *Event) {
+    if (Event->type == SDL_QUIT) {
         running = false;
     }
 }
