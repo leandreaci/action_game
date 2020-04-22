@@ -18,8 +18,8 @@ int Game::onExecute() {
     this->check();
 
     RenderWindow window(name, width, height);
-    SDL_Texture* grassTexture = window.loadTexture("../res/gfx/main.png");
-    Entity player(100, height - 50 * 4, grassTexture);
+    SDL_Texture* playerTexture = window.loadTexture("../res/gfx/main.png");
+    Entity player(100, height - 50 * 4, playerTexture);
     player.setCurrentFrame(160,0,35,50);
 
     SDL_Event Event;
