@@ -2,11 +2,13 @@
 // Created by leandro on 21/04/2020.
 //
 #include <SDL2/SDL.h>
+#include <iostream>
 
 #include "core/Entity.h"
 #include "core/RenderWindow.h"
 #include "core/Initialization.h"
 #include "Game.h"
+#include "core/Input.h"
 
 void Game::check() {
     Initialization init;
@@ -41,9 +43,13 @@ int Game::onExecute() {
 }
 
 void Game::OnEvent(SDL_Event *Event) {
+
     if (Event->type == SDL_QUIT) {
         running = false;
     }
+
+    Input input;
+    input.onEvent(Event);
 }
 
 void Game::OnLoop() {
