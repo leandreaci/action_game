@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
+
 # Project
-SET(PROJECT_NAME 2D_RGP_example_sdl2)
+SET(PROJECT_NAME action_game)
 project("${PROJECT_NAME}")
 
 # Settings
