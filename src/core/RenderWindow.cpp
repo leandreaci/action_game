@@ -41,21 +41,21 @@ void RenderWindow::clear()
     SDL_RenderClear(renderer);
 }
 
-void RenderWindow::render(Entity* p_entity)
+void RenderWindow::render(Entity* entity)
 {
     SDL_Rect src;
-    src.x = p_entity->getCurrentFrame().x;
-    src.y = p_entity->getCurrentFrame().y;
-    src.w = p_entity->getCurrentFrame().w;
-    src.h = p_entity->getCurrentFrame().h;
+    src.x = entity->getCurrentFrame().x;
+    src.y = entity->getCurrentFrame().y;
+    src.w = entity->getCurrentFrame().w;
+    src.h = entity->getCurrentFrame().h;
 
     SDL_Rect dst;
-    dst.x = p_entity->getX();
-    dst.y = p_entity->getY();
-    dst.w = p_entity->getCurrentFrame().w * 4;
-    dst.h = p_entity->getCurrentFrame().h * 4;
+    dst.x = entity->getX();
+    dst.y = entity->getY();
+    dst.w = entity->getCurrentFrame().w * 4;
+    dst.h = entity->getCurrentFrame().h * 4;
 
-    SDL_RenderCopy(renderer, p_entity->getTexture(), &src, &dst);
+    SDL_RenderCopy(renderer, entity->getTexture(), &src, &dst);
 }
 
 void RenderWindow::display()

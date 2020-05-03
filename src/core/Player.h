@@ -7,13 +7,15 @@
 
 #include "RenderWindow.h"
 #include "Entity.h"
+#include "Input.h"
 
 class Player {
 
 public:
-    explicit Player(RenderWindow *window);
+    explicit Player(RenderWindow *window, Input *input);
     void load();
     void render();
+    void update();
     Entity* getEntity();
     SDL_Texture* getPlayerTexture();
 
@@ -21,6 +23,7 @@ private:
     Entity *entity;
     SDL_Texture *playerTexture;
     RenderWindow *window;
+    Input *input;
 };
 
 

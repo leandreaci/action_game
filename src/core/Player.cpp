@@ -16,6 +16,14 @@ void Player::render()
     window->render(this->entity);
 }
 
+void Player::update() {
+
+    if(this->input->isWalkForward())
+    {
+        this->entity->setX( this->entity->getX() + 1 );
+    }
+}
+
 Entity* Player::getEntity() {
     return this->entity;
 }
@@ -24,7 +32,7 @@ SDL_Texture *Player::getPlayerTexture() {
     return this->playerTexture;
 }
 
-Player::Player(RenderWindow *window): window(window) {
+Player::Player(RenderWindow *window, Input *input): window(window), input(input) {
     this->load();
 }
 

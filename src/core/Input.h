@@ -25,6 +25,7 @@ public:
     Input();
     void onEvent(SDL_Event *Event);
     void printCurrentEvent();
+    bool isWalkForward();
 
 };
 

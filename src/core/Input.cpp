@@ -45,3 +45,7 @@ void Input::printCurrentEvent() {
     std::cout << "LEFT: " << ActiveKeys.left << std::endl;
     std::cout << "RIGHT: " << ActiveKeys.right << std::endl;
 }
+
+bool Input::isWalkForward() {
+    return ActiveKeys.right;
+}

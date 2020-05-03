@@ -14,12 +14,14 @@ public:
     Entity(float p_x, float p_y, SDL_Texture* p_tex);
     float getX();
     float getY();
+    void setX(int x);
+    void setY(int y);
     SDL_Texture* getTexture();
     SDL_Rect getCurrentFrame();
     void setCurrentFrame(int x, int y, int w, int h);
 private:
     float x, y;
-    SDL_Rect currentFrame;
+    SDL_Rect currentFrame{};
     SDL_Texture* texture;
 };
 

@@ -6,6 +6,7 @@
 #define INC_ACTION_GAME_GAME_H
 
 #include <SDL.h>
+#include "Input.h"
 
 class Game {
 public:
@@ -21,6 +22,7 @@ private:
     int width = 1280;
     int height = 720;
     void check();
+    Input *input{};
 };
 
 

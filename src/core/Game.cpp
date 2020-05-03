@@ -22,7 +22,9 @@ int Game::onExecute() {
 
     SDL_Event Event;
     RenderWindow window(name, width, height);
-    Player player1(&window);
+    this->input = new Input;
+
+    Player player1(&window, this->input);
 
     while (running) {
         while (SDL_PollEvent(&Event)) {
@@ -31,6 +33,7 @@ int Game::onExecute() {
 
         window.clear();
         player1.render();
+        player1.update();
         window.display();
 
         OnLoop();
@@ -46,8 +49,7 @@ void Game::OnEvent(SDL_Event *Event) {
         running = false;
     }
 
-    Input input;
-    input.onEvent(Event);
+    input->onEvent(Event);
 }
 
 void Game::OnLoop() {

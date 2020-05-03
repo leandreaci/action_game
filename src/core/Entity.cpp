@@ -39,3 +39,11 @@ void Entity::setCurrentFrame(int x, int y, int w, int h) {
     this->currentFrame.w = w;
     this->currentFrame.h = h;
 }
+
+void Entity::setX(int x) {
+    this->currentFrame.x = x;
+}
+
+void Entity::setY(int y) {
+    this->currentFrame.y = y;
+}
