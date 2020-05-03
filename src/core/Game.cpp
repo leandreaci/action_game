@@ -20,9 +20,9 @@ int Game::onExecute() {
 
     this->check();
 
+    SDL_Event Event;
     RenderWindow window(name, width, height);
     Player player1(&window);
-    SDL_Event Event;
 
     while (running) {
         while (SDL_PollEvent(&Event)) {
