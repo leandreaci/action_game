@@ -9,6 +9,7 @@
 #include "core/Initialization.h"
 #include "Game.h"
 #include "core/Input.h"
+#include "core/Player.h"
 
 void Game::check() {
     Initialization init;
@@ -20,10 +21,7 @@ int Game::onExecute() {
     this->check();
 
     RenderWindow window(name, width, height);
-    SDL_Texture *playerTexture = window.loadTexture("../res/gfx/main.png");
-    Entity player(100, height - 50 * 4, playerTexture);
-    player.setCurrentFrame(160, 0, 35, 50);
-
+    Player player1(&window);
     SDL_Event Event;
 
     while (running) {
@@ -32,7 +30,7 @@ int Game::onExecute() {
         }
 
         window.clear();
-        window.render(player);
+        player1.render();
         window.display();
 
         OnLoop();
