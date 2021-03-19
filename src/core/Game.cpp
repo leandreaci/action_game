@@ -17,13 +17,12 @@ void Game::check() {
 }
 
 int Game::onExecute() {
+    SDL_Event Event;
 
     this->check();
-
-    SDL_Event Event;
-    RenderWindow window(name, width, height);
     this->input = new Input;
 
+    RenderWindow window(name, width, height);
     Player player1(&window, this->input);
 
     while (running) {

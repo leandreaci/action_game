@@ -20,7 +20,7 @@ void Player::update() {
 
     if(this->input->isWalkForward())
     {
-        this->entity->setX( this->entity->getX() + 1 );
+        this->entity->setX( 1 );
     }
 }
 

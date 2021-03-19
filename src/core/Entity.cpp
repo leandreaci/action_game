@@ -41,7 +41,8 @@ void Entity::setCurrentFrame(int x, int y, int w, int h) {
 }
 
 void Entity::setX(int x) {
-    this->currentFrame.x = x;
+//    this->currentFrame.x = x;
+    this->x = this->x + 1;
 }
 
 void Entity::setY(int y) {
