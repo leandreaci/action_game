@@ -87,3 +87,7 @@ void Input::printCurrentEvent() {
 bool Input::isWalkForward() {
     return ActiveKeys.right;
 }
+
+bool Input::isWalkingBack() {
+    return ActiveKeys.left;
+}

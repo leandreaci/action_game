@@ -22,7 +22,13 @@ void Player::update() {
     if(this->input->isWalkForward())
     {
         std::cout << "walking" << std::endl;
-        this->entity->setX( 1 );
+        this->entity->setX( this->entity->getX() + velocity);
+    }
+
+    if(this->input->isWalkingBack())
+    {
+        std::cout << "walking" << std::endl;
+        this->entity->setX( this->entity->getX() - velocity);
     }
 }
 

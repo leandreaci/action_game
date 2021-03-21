@@ -40,9 +40,9 @@ void Entity::setCurrentFrame(int x, int y, int w, int h) {
     this->currentFrame.h = h;
 }
 
-void Entity::setX(int x) {
-//    this->currentFrame.x = x;
-    this->x = this->x + 1;
+void Entity::setX(float axiosX) {
+//    this->currentFrame.axiosX = axiosX;
+    this->x = axiosX;
 }
 
 void Entity::setY(int y) {

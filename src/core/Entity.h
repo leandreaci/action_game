@@ -14,7 +14,7 @@ public:
     Entity(float p_x, float p_y, SDL_Texture* p_tex);
     float getX();
     float getY();
-    void setX(int x);
+    void setX(float axiosX);
     void setY(int y);
     SDL_Texture* getTexture();
     SDL_Rect getCurrentFrame();

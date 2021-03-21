@@ -28,6 +28,8 @@ public:
     bool isWalkForward();
 
     void reset();
+
+    bool isWalkingBack();
 };
 
 
