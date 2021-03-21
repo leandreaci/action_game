@@ -2,6 +2,7 @@
 // Created by leandro on 02/05/2020.
 //
 
+#include <iostream>
 #include "Player.h"
 #include "Entity.h"
 
@@ -20,6 +21,7 @@ void Player::update() {
 
     if(this->input->isWalkForward())
     {
+        std::cout << "walking" << std::endl;
         this->entity->setX( 1 );
     }
 }

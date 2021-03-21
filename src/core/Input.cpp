@@ -9,6 +9,13 @@ Input::Input() {
     struct Keys ActiveKeys;
 }
 
+void Input::reset() {
+    ActiveKeys.up = false;
+    ActiveKeys.down = false;
+    ActiveKeys.left = false;
+    ActiveKeys.right = false;
+}
+
 void Input::onEvent(SDL_Event *Event) {
 
     if(Event->type == SDL_KEYDOWN)
@@ -35,6 +42,37 @@ void Input::onEvent(SDL_Event *Event) {
         }
 
         printCurrentEvent();
+//        reset();
+
+
+    }
+
+    if(Event->type == SDL_KEYUP)
+    {
+        SDL_Keysym key = Event->key.keysym;
+        std::cout << "KEYUP" << std::endl;
+
+        switch(key.sym)
+        {
+            case SDLK_UP:
+                ActiveKeys.up = false;
+                break;
+            case SDLK_DOWN:
+                ActiveKeys.down = false;
+                break;
+            case SDLK_RIGHT:
+                ActiveKeys.right = false;
+                break;
+            case SDLK_LEFT:
+                ActiveKeys.left = false;
+                break;
+            default:
+                break;
+        }
+
+        printCurrentEvent();
+//        reset();
+
 
     }
 }

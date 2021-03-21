@@ -27,6 +27,7 @@ public:
     void printCurrentEvent();
     bool isWalkForward();
 
+    void reset();
 };
 
 
