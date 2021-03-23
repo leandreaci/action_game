@@ -55,7 +55,7 @@ add_executable(
         ${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/main.cpp
         ${SOURCE_CORE_FILES}
-        )
+        src/core/graphic/FrameRate.cpp src/core/graphic/FrameRate.h)
 
 #Link dependencies
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

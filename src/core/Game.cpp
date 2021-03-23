@@ -10,6 +10,7 @@
 #include "Game.h"
 #include "core/Input.h"
 #include "core/Player.h"
+#include "core/graphic/FrameRate.h"
 
 void Game::check() {
     Initialization init;
@@ -24,6 +25,8 @@ int Game::onExecute() {
 
     RenderWindow window(name, width, height);
     Player player1(&window, this->input);
+    FrameRate frameRate;
+    frameRate.initialize();
 
     while (running) {
         while (SDL_PollEvent(&Event)) {
@@ -37,6 +40,9 @@ int Game::onExecute() {
 
         OnLoop();
         OnRender();
+
+        frameRate.calculate();
+        std::cout << frameRate.getFrameRate() << std::endl;
     }
 
     return 0;

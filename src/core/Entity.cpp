@@ -43,6 +43,7 @@ void Entity::setCurrentFrame(int x, int y, int w, int h) {
 void Entity::setX(float axiosX) {
 //    this->currentFrame.axiosX = axiosX;
     this->x = axiosX;
+//    this->currentFrame.x = static_cast<int>(axiosX * 2);
 }
 
 void Entity::setY(int y) {
