@@ -14,13 +14,11 @@ Uint32 FrameRate::getFrameRate() {
 }
 
 void FrameRate::calculate() {
-    Uint32 current = SDL_GetTicks();
-    delta += current = lastTime;
-    lastTime = current;
-    frameRate++;
 
-    if( delta > 1000 ) {
-        delta -= 1000;
-        frameRate = 0;
+    delta = SDL_GetTicks() - lastTime;
+
+    if(delta < fps){
+        frameRate = fps - delta;
+        SDL_Delay(frameRate);
     }
 }

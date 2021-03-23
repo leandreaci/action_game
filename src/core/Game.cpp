@@ -26,9 +26,11 @@ int Game::onExecute() {
     RenderWindow window(name, width, height);
     Player player1(&window, this->input);
     FrameRate frameRate;
-    frameRate.initialize();
+
 
     while (running) {
+        frameRate.initialize();
+
         while (SDL_PollEvent(&Event)) {
             OnEvent(&Event);
         }

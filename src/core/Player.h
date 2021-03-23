@@ -24,7 +24,7 @@ private:
     SDL_Texture *playerTexture;
     RenderWindow *window;
     Input *input;
-    float velocity = 0.1;
+    float velocity = 20;
 };
 
 
