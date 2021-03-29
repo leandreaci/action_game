@@ -7,9 +7,10 @@
 #include "Entity.h"
 
 void Player::load() {
-    playerTexture = window->loadTexture("../res/gfx/main.png");
-    this->entity = new Entity(100, 720 - 50 * 4, playerTexture);
-    this->entity->setCurrentFrame(160, 0, 35, 50);
+    playerTexture = window->loadTexture("../res/gfx/megaman-sprite.png");
+    this->entity = new Entity(100, 520, playerTexture);
+    this->entity->setCurrentFrame(50.3 * 3, 54, 49.5, 40);
+    // /this->entity->setCurrentFrame(0, 54, 50.3 * 3, 40);
 }
 
 void Player::render()
@@ -19,17 +20,69 @@ void Player::render()
 
 void Player::update() {
 
-    if(this->input->isWalkForward())
-    {
+    if(this->input->isWalkForward()){
         std::cout << "walking" << std::endl;
         this->entity->setX( this->entity->getX() + velocity);
-    }
-
-    if(this->input->isWalkingBack())
-    {
+        this->running();
+    } else if(this->input->isWalkingBack()){
         std::cout << "walking" << std::endl;
         this->entity->setX( this->entity->getX() - velocity);
+    } else {
+        if(this->isJumping == false) {
+            this->stopped();
+        }
     }
+
+    if(this->input->isJumping()){
+        std::cout << "jumping" << std::endl;
+        this->isJumping = true;
+    }
+
+    if(this->isJumping == true) {
+        this->entity->setY( this->entity->getY() - this->jumpForce * 1.7);
+        this->jumpForce = this->jumpForce - (this->entity->getY() * 0.009);
+        this->jumping();
+    }
+
+    if(this->hasPlayerReachedTheGround()) {
+        this->isJumping = false;
+        this->entity->setY(520);
+        this->jumpForce = this->entity->getY() * 0.05;
+        this->jumpingCurrentFrame = 0;
+        std::cout << "reached the ground" << std::endl;
+    }
+}
+
+void Player::running() {
+    if(this->isJumping == false) {
+        this->entity->setCurrentFrame(0, 203, 50.3, 40);
+        this->entity->moveFrame(this->runningCurrentFrame);
+        this->runningCurrentFrame++;
+        if(this->runningCurrentFrame >= this->runningTotalFrames) {
+            this->runningCurrentFrame = 0;
+        }
+    }
+}
+
+void Player::stopped() {
+    this->entity->setCurrentFrame(50.3 * 3, 54, 50.3, 40);
+    //this->entity->moveFrame(this->runningCurrentFrame);
+    //this->runningCurrentFrame++;
+    //if(this->runningCurrentFrame >= this->runningTotalFrames) {
+    //    this->runningCurrentFrame = 0;
+    //}
+}
+
+void Player::jumping() {
+    if(this->jumpingCurrentFrame < this->jumpingTotalFrames) {
+        this->entity->setCurrentFrame(0, 403, 50.3, 40);
+        this->entity->moveFrame(this->jumpingCurrentFrame);
+        this->jumpingCurrentFrame++;
+    }
+}
+
+bool Player::hasPlayerReachedTheGround() {
+    return this->entity->getY() >= 520;
 }
 
 Entity* Player::getEntity() {

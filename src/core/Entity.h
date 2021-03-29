@@ -15,10 +15,11 @@ public:
     float getX();
     float getY();
     void setX(float axiosX);
-    void setY(int y);
+    void setY(float axiosY);
     SDL_Texture* getTexture();
     SDL_Rect getCurrentFrame();
     void setCurrentFrame(int x, int y, int w, int h);
+    void moveFrame(int frame);
 private:
     float x, y;
     SDL_Rect currentFrame{};
