@@ -4,13 +4,13 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 
-#include "core/Entity.h"
-#include "core/RenderWindow.h"
-#include "core/Initialization.h"
+#include "Entity.h"
+#include "RenderWindow.h"
+#include "Initialization.h"
 #include "Game.h"
-#include "core/Input.h"
-#include "core/Player.h"
-#include "core/graphic/FrameRate.h"
+#include "Input.h"
+#include "Player.h"
+#include "graphic/FrameRate.h"
 
 void Game::check() {
     Initialization init;

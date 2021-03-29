@@ -18,6 +18,7 @@ public:
         bool down = false;
         bool left = false;
         bool right = false;
+        bool space = false;
     };
 
     Keys ActiveKeys;
@@ -26,6 +27,7 @@ public:
     void onEvent(SDL_Event *Event);
     void printCurrentEvent();
     bool isWalkForward();
+    bool isJumping();
 
     void reset();
 

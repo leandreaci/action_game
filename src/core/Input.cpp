@@ -14,6 +14,7 @@ void Input::reset() {
     ActiveKeys.down = false;
     ActiveKeys.left = false;
     ActiveKeys.right = false;
+    ActiveKeys.space = false;
 }
 
 void Input::onEvent(SDL_Event *Event) {
@@ -36,6 +37,9 @@ void Input::onEvent(SDL_Event *Event) {
                 break;
             case SDLK_LEFT:
                 ActiveKeys.left = true;
+                break;
+            case SDLK_SPACE:
+                ActiveKeys.space = true;
                 break;
             default:
                 break;
@@ -66,6 +70,9 @@ void Input::onEvent(SDL_Event *Event) {
             case SDLK_LEFT:
                 ActiveKeys.left = false;
                 break;
+            case SDLK_SPACE:
+                ActiveKeys.space = false;
+                break;
             default:
                 break;
         }
@@ -82,6 +89,7 @@ void Input::printCurrentEvent() {
     std::cout << "DOWN: " << ActiveKeys.down << std::endl;
     std::cout << "LEFT: " << ActiveKeys.left << std::endl;
     std::cout << "RIGHT: " << ActiveKeys.right << std::endl;
+    std::cout << "SPACE: " << ActiveKeys.right << std::endl;
 }
 
 bool Input::isWalkForward() {
@@ -90,4 +98,8 @@ bool Input::isWalkForward() {
 
 bool Input::isWalkingBack() {
     return ActiveKeys.left;
+}
+
+bool Input::isJumping() {
+    return ActiveKeys.space;
 }

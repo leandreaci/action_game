@@ -55,7 +55,19 @@ void RenderWindow::render(Entity* entity)
     dst.w = entity->getCurrentFrame().w * 4;
     dst.h = entity->getCurrentFrame().h * 4;
 
-    SDL_RenderCopy(renderer, entity->getTexture(), &src, &dst);
+    SDL_RendererFlip flip = (SDL_RendererFlip)SDL_FLIP_NONE;
+    if(entity->flipHorizontalVertical()) {
+        std::cout << "flipHorizontalVertical" << std::endl;
+        flip = (SDL_RendererFlip)(SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL); 
+    }else if(entity->flipVertical()) {
+        std::cout << "flipVertical" << std::endl;
+        flip = (SDL_RendererFlip)SDL_FLIP_VERTICAL; 
+    }else if(entity->flipHorizontal()) {
+        std::cout << "flipHorizontal" << std::endl;
+        flip = (SDL_RendererFlip)SDL_FLIP_HORIZONTAL;
+    }
+
+    SDL_RenderCopyEx(renderer, entity->getTexture(), &src, &dst, 0, 0, flip);
 }
 
 void RenderWindow::display()
