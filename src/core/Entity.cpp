@@ -53,3 +53,28 @@ void Entity::setX(float axiosX) {
 void Entity::setY(float axiosY) {
     this->y = axiosY;
 }
+
+bool Entity::flipHorizontalVertical() {
+    return this->flipEntityHorizontal && this->flipEntityVertical;
+}
+
+bool Entity::flipHorizontal() {
+    return this->flipEntityHorizontal;
+}
+
+bool Entity::flipVertical() {
+    return this->flipEntityVertical;
+}
+
+void Entity::flipHorizontalVertical(bool val) {
+    this->flipEntityHorizontal = val;
+    this->flipEntityVertical = val;
+}
+
+void Entity::flipHorizontal(bool val) {
+    this->flipEntityHorizontal = val;
+}
+
+void Entity::flipVertical(bool val) {
+    this->flipEntityVertical = val;
+}

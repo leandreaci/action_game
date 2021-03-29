@@ -23,10 +23,13 @@ void Player::update() {
     if(this->input->isWalkForward()){
         std::cout << "walking" << std::endl;
         this->entity->setX( this->entity->getX() + velocity);
+        this->entity->flipHorizontal(false);
         this->running();
     } else if(this->input->isWalkingBack()){
         std::cout << "walking" << std::endl;
         this->entity->setX( this->entity->getX() - velocity);
+        this->entity->flipHorizontal(true);
+        this->running();
     } else {
         if(this->isJumping == false) {
             this->stopped();

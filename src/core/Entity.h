@@ -20,7 +20,15 @@ public:
     SDL_Rect getCurrentFrame();
     void setCurrentFrame(int x, int y, int w, int h);
     void moveFrame(int frame);
+    bool flipHorizontalVertical();
+    bool flipHorizontal();
+    bool flipVertical();
+    void flipHorizontalVertical(bool val);
+    void flipHorizontal(bool val);
+    void flipVertical(bool val);
 private:
+    bool flipEntityHorizontal = false;
+    bool flipEntityVertical = false;
     float x, y;
     SDL_Rect currentFrame{};
     SDL_Texture* texture;
