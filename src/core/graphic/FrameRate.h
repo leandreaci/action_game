@@ -17,7 +17,7 @@ private:
     Uint32 frameRate = 0;
     Uint32 delta = 0;
     Uint32 lastTime = 0;
-    Uint32 fps = 60;
+    Uint32 fps = 50;
 
 };
 

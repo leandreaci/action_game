@@ -31,7 +31,7 @@ void Player::update() {
         this->entity->flipHorizontal(true);
         this->running();
     } else {
-        if(this->isJumping == false) {
+        if(!this->isJumping) {
             this->stopped();
         }
     }
@@ -41,8 +41,8 @@ void Player::update() {
         this->isJumping = true;
     }
 
-    if(this->isJumping == true) {
-        this->entity->setY( this->entity->getY() - this->jumpForce * 1.7);
+    if(this->isJumping) {
+        this->entity->setY( this->entity->getY() - this->jumpForce * 1.8);
         this->jumpForce = this->jumpForce - (this->entity->getY() * 0.009);
         this->jumping();
     }
@@ -57,7 +57,7 @@ void Player::update() {
 }
 
 void Player::running() {
-    if(this->isJumping == false) {
+    if(!this->isJumping) {
         this->entity->setCurrentFrame(0, 203, 50.3, 40);
         this->entity->moveFrame(this->runningCurrentFrame);
         this->runningCurrentFrame++;

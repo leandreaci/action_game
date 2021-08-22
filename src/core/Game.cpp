@@ -44,7 +44,7 @@ int Game::onExecute() {
         OnRender();
 
         frameRate.calculate();
-        std::cout << frameRate.getFrameRate() << std::endl;
+//        std::cout << frameRate.getFrameRate() << std::endl;
     }
 
     return 0;
