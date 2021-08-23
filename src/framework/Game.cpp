@@ -3,6 +3,7 @@
 //
 #include <SDL2/SDL.h>
 #include <iostream>
+#include <game/Configuration.h>
 
 #include "Entity.h"
 #include "RenderWindow.h"
@@ -19,6 +20,8 @@ void Game::check() {
 
 int Game::onExecute() {
     SDL_Event Event;
+    Configuration config;
+    config.load();
 
     this->check();
     this->input = new Input;

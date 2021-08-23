@@ -51,7 +51,7 @@ void Player::update() {
         this->entity->setY(520);
         this->jumpForce = this->entity->getY() * 0.05;
         this->jumpingCurrentFrame = 0;
-        std::cout << "reached the ground" << std::endl;
+//        std::cout << "reached the ground" << std::endl;
     }
 }
 

@@ -31,11 +31,15 @@ SET (PROJECT_ROOT "${PROJECT_SOURCE_DIR}")
 SET (PROJECT_SOURCE_DIR "${PROJECT_SOURCE_DIR}/src")
 SET (PROJECT_BINARY_DIR "${PROJECT_BINARY_DIR}/bin")
 SET (PROJECT_RES_DIR "${PROJECT_SOURCE_DIR}/res")
+SET (PROJECT_GAME_DIR "${PROJECT_SOURCE_DIR}/game")
 MESSAGE ("Source path: ${PROJECT_SOURCE_DIR}")
 MESSAGE ("Binary path: ${PROJECT_BINARY_DIR}")
 
 # Configure Dependencies Directories
-SET (PROJECT_CORE_DIR "${PROJECT_SOURCE_DIR}/framework")
+SET (PROJECT_GAME_DIR "${PROJECT_SOURCE_DIR}/game")
+SET (PROJECT_FRAMEWORK_DIR "${PROJECT_SOURCE_DIR}/framework")
+SET (PROJECT_GRAPHIC_DIR "${PROJECT_FRAMEWORK_DIR}/graphic")
+
 
 # Directories
 include_directories(
@@ -48,14 +52,18 @@ include_directories(
 )
 
 # Files
-FILE(GLOB SOURCE_CORE_FILES ${PROJECT_CORE_DIR}/*.cpp)
+FILE(GLOB SOURCE_GAME_DIR ${PROJECT_GAME_DIR}/*.cpp)
+FILE(GLOB SOURCE_FRAMEWORK_FILES ${PROJECT_FRAMEWORK_DIR}/*.cpp)
+FILE(GLOB SOURCE_GRAPHIC_DIR ${PROJECT_FRAMEWORK_DIR}/graphic/*.cpp)
 
 # Add files
 add_executable(
         ${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/main.cpp
-        ${SOURCE_CORE_FILES}
-        src/framework/graphic/FrameRate.cpp src/framework/graphic/FrameRate.h)
+        ${SOURCE_FRAMEWORK_FILES}
+        ${SOURCE_GRAPHIC_DIR}
+        ${SOURCE_GAME_DIR}
+)
 
 #Link dependencies
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
