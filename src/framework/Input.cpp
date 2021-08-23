@@ -22,7 +22,7 @@ void Input::onEvent(SDL_Event *Event) {
     if(Event->type == SDL_KEYDOWN)
     {
         SDL_Keysym key = Event->key.keysym;
-        std::cout << "KEYDOWN" << std::endl;
+//        std::cout << "KEYDOWN" << std::endl;
 
         switch(key.sym)
         {
@@ -45,10 +45,8 @@ void Input::onEvent(SDL_Event *Event) {
                 break;
         }
 
-        printCurrentEvent();
+//        printCurrentEvent();
 //        reset();
-
-
     }
 
     if(Event->type == SDL_KEYUP)
