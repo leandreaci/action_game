@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <game/Configuration.h>
+#include <game/Stage.h>
 #include "Player.h"
 #include "Entity.h"
 
@@ -11,23 +12,10 @@ void Player::load() {
     playerTexture = window->loadTexture("../res/gfx/megaman-sprite.png");
     this->entity = new Entity(100, 520, playerTexture);
     this->entity->setCurrentFrame(150, 55, 50, 40);
-
-    loadBackground();
-}
-
-void Player::loadBackground() {
-
-    Configuration config;
-    config.load();
-
-    backgroundTexture = window->loadTexture("../res/gfx/stage_1.png");
-    backgroundEntity = new Entity(-200, -400, backgroundTexture);
-    backgroundEntity->setCurrentFrame(0, 0, config.getScreenWidth(), config.getScreenHeight());
 }
 
 void Player::render()
 {
-    window->render(this->backgroundEntity);
     window->render(this->entity);
 }
 

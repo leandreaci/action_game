@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <game/Configuration.h>
+#include <game/Stage.h>
 
 #include "Entity.h"
 #include "RenderWindow.h"
@@ -26,9 +27,11 @@ int Game::onExecute() {
     this->check();
     this->input = new Input;
 
+    FrameRate frameRate;
     RenderWindow window(name, config.getScreenWidth(), config.getScreenHeight());
     Player player1(&window, this->input);
-    FrameRate frameRate;
+    Stage stage(&window);
+    stage.loadBackground();
 
     while (running) {
         frameRate.initialize();
@@ -38,6 +41,7 @@ int Game::onExecute() {
         }
 
         window.clear();
+        stage.render();
         player1.render();
         player1.update();
         window.display();
