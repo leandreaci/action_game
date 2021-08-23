@@ -9,8 +9,7 @@
 void Player::load() {
     playerTexture = window->loadTexture("../res/gfx/megaman-sprite.png");
     this->entity = new Entity(100, 520, playerTexture);
-    this->entity->setCurrentFrame(50.3 * 3, 54, 49.5, 40);
-    // /this->entity->setCurrentFrame(0, 54, 50.3 * 3, 40);
+    this->entity->setCurrentFrame(150, 55, 50, 40);
 }
 
 void Player::render()
