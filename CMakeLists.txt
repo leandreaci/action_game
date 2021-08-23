@@ -35,7 +35,7 @@ MESSAGE ("Source path: ${PROJECT_SOURCE_DIR}")
 MESSAGE ("Binary path: ${PROJECT_BINARY_DIR}")
 
 # Configure Dependencies Directories
-SET (PROJECT_CORE_DIR "${PROJECT_SOURCE_DIR}/core")
+SET (PROJECT_CORE_DIR "${PROJECT_SOURCE_DIR}/framework")
 
 # Directories
 include_directories(
@@ -55,7 +55,7 @@ add_executable(
         ${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/main.cpp
         ${SOURCE_CORE_FILES}
-        src/core/graphic/FrameRate.cpp src/core/graphic/FrameRate.h)
+        src/framework/graphic/FrameRate.cpp src/framework/graphic/FrameRate.h)
 
 #Link dependencies
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

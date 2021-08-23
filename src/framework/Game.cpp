@@ -27,7 +27,6 @@ int Game::onExecute() {
     Player player1(&window, this->input);
     FrameRate frameRate;
 
-
     while (running) {
         frameRate.initialize();
 
