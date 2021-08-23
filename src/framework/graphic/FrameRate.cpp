@@ -3,6 +3,7 @@
 //
 
 #include <SDL2/SDL.h>
+#include <game/Configuration.h>
 #include "FrameRate.h"
 
 void FrameRate::initialize() {
@@ -15,10 +16,12 @@ Uint32 FrameRate::getFrameRate() {
 
 void FrameRate::calculate() {
 
+    Configuration config;
+    config.load();
     delta = SDL_GetTicks() - lastTime;
 
     if(delta < fps){
-        frameRate = fps - delta;
+        frameRate = config.getFps() - delta;
         SDL_Delay(frameRate);
     }
 }

@@ -38,3 +38,7 @@ int Configuration::getScreenWidth() {
 int Configuration::getScreenHeight() {
     return stoi(this->options.find(this->SCREEN_HEIGHT_KEY)->second);
 }
+
+int Configuration::getFps() {
+    return stoi(this->options.find(this->FPS)->second);
+}
