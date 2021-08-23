@@ -24,8 +24,8 @@ public:
     SDL_Texture* getPlayerTexture();
 
 private:
-    Entity *entity;
-    SDL_Texture *playerTexture;
+    Entity *entity, *backgroundEntity;
+    SDL_Texture *playerTexture, *backgroundTexture;
     RenderWindow *window;
     Input *input;
     float velocity = 20;
@@ -40,6 +40,8 @@ private:
 
     float jumpingCurrentFrame = 0;
     float jumpingTotalFrames = 7;
+
+    void loadBackground();
 };
 
 

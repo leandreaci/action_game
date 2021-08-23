@@ -14,10 +14,6 @@ class Camera {
     const Uint16 SCREEN_WIDTH = 500;
     const Uint16 SCREEN_HEIGHT = 500;
 
-    Camera() {
-        this->camera = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-    };
-
     void move();
 
 };
