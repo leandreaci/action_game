@@ -10,11 +10,16 @@
 class Configuration {
 
 private:
-    std::map<std::string, std::string> options;
     const char *filename = "../default.cfg";
+    const char *SCREEN_WIDTH_KEY = "SCREEN_WIDTH";
+    const char *SCREEN_HEIGHT_KEY = "SCREEN_HEIGHT";
+
+    std::map<std::string, std::string> options;
 
 public:
     void load();
+    int getScreenWidth();
+    int getScreenHeight();
 };
 
 

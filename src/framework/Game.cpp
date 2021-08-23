@@ -26,7 +26,7 @@ int Game::onExecute() {
     this->check();
     this->input = new Input;
 
-    RenderWindow window(name, width, height);
+    RenderWindow window(name, config.getScreenWidth(), config.getScreenHeight());
     Player player1(&window, this->input);
     FrameRate frameRate;
 
