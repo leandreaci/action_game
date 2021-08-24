@@ -5,9 +5,8 @@
 #ifndef ACTION_GAME_STAGE_H
 #define ACTION_GAME_STAGE_H
 
-#include "../framework/Entity.h"
-#include "../framework/RenderWindow.h"
-
+#include <framework/Entity.h>
+#include <framework/RenderWindow.h>
 
 class Stage {
 public:
@@ -16,6 +15,7 @@ public:
     Entity *entity;
     SDL_Texture *backgroundTexture;
     RenderWindow *window;
+
     void loadBackground();
 
     void render();

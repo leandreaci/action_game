@@ -5,8 +5,7 @@
 #ifndef ACTION_GAME_INPUTGAME_H
 #define ACTION_GAME_INPUTGAME_H
 
-#include "../framework/Input.h"
-
+#include <framework/Input.h>
 
 class InputGame : public Input {
 

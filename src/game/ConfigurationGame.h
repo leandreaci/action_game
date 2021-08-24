@@ -6,8 +6,7 @@
 #define ACTION_GAME_CONFIGURATIONGAME_H
 
 #include <map>
-#include "../framework/Config.h"
-//#include <framework/Config.h>
+#include <framework/Config.h>
 
 class ConfigurationGame : public Config {
 
