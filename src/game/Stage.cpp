@@ -4,7 +4,7 @@
 
 #include <framework/RenderWindow.h>
 #include "Stage.h"
-#include "Configuration.h"
+#include "ConfigurationGame.h"
 
 Stage::Stage(RenderWindow *window) {
     this->window = window;
@@ -12,7 +12,7 @@ Stage::Stage(RenderWindow *window) {
 
 void Stage::loadBackground() {
 
-    Configuration config;
+    ConfigurationGame config;
     config.load();
 
     backgroundTexture = this->window->loadTexture("../res/gfx/stage_1.png");

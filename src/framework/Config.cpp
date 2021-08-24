@@ -1,12 +1,12 @@
 //
-// Created by leandro on 23/08/2021.
+// Created by leandro on 24/08/2021.
 //
 
 #include <fstream>
 #include <iostream>
-#include "Configuration.h"
+#include "Config.h"
 
-void Configuration::load() {
+void Config::load() {
 
     std::ifstream file;
 
@@ -31,14 +31,14 @@ void Configuration::load() {
 
 }
 
-int Configuration::getScreenWidth() {
+int Config::getScreenWidth() {
     return stoi(this->options.find(this->SCREEN_WIDTH_KEY)->second);
 }
 
-int Configuration::getScreenHeight() {
+int Config::getScreenHeight() {
     return stoi(this->options.find(this->SCREEN_HEIGHT_KEY)->second);
 }
 
-int Configuration::getFps() {
+int Config::getFps() {
     return stoi(this->options.find(this->FPS)->second);
 }

@@ -1,16 +1,14 @@
 //
 // Created by leandro on 21/04/2020.
 //
-#include <SDL2/SDL.h>
-#include <iostream>
-#include <game/Configuration.h>
-#include <game/Stage.h>
 
-#include "Entity.h"
+
+#include <game/ConfigurationGame.h>
+#include <game/Stage.h>
+#include "../game/InputGame.h"
 #include "RenderWindow.h"
 #include "Initialization.h"
 #include "Game.h"
-#include "../game/InputGame.h"
 #include "PlayerController.h"
 #include "graphic/FrameRate.h"
 
@@ -21,7 +19,7 @@ void Game::check() {
 
 int Game::onExecute() {
     SDL_Event Event;
-    Configuration config;
+    ConfigurationGame config;
     config.load();
 
     this->check();

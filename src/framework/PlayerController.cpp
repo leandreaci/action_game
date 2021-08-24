@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include <game/Configuration.h>
+#include <game/ConfigurationGame.h>
 #include <game/Stage.h>
 #include "PlayerController.h"
 #include "Entity.h"

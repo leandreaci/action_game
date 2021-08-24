@@ -1,15 +1,15 @@
 //
-// Created by leandro on 23/08/2021.
+// Created by leandro on 24/08/2021.
 //
 
-#ifndef ACTION_GAME_CONFIGURATION_H
-#define ACTION_GAME_CONFIGURATION_H
+#ifndef ACTION_GAME_CONFIG_H
+#define ACTION_GAME_CONFIG_H
 
 #include <map>
 
-class Configuration {
+class Config {
 
-private:
+protected:
     const char *filename = "../default.cfg";
     const char *SCREEN_WIDTH_KEY = "SCREEN_WIDTH";
     const char *SCREEN_HEIGHT_KEY = "SCREEN_HEIGHT";
@@ -19,11 +19,13 @@ private:
 
 public:
     void load();
+
     int getScreenWidth();
+
     int getScreenHeight();
 
     int getFps();
 };
 
 
-#endif //ACTION_GAME_CONFIGURATION_H
+#endif //ACTION_GAME_CONFIG_H
