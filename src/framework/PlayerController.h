@@ -2,17 +2,17 @@
 // Created by leandro on 02/05/2020.
 //
 
-#ifndef ACTION_GAME_PLAYER_H
-#define ACTION_GAME_PLAYER_H
+#ifndef ACTION_GAME_PLAYERCONTROLLER_H
+#define ACTION_GAME_PLAYERCONTROLLER_H
 
 #include "RenderWindow.h"
 #include "Entity.h"
 #include "Input.h"
 
-class Player {
+class PlayerController {
 
 public:
-    explicit Player(RenderWindow *window, Input *input);
+    explicit PlayerController(RenderWindow *window, Input *input);
     void load();
     void render();
     void update();
@@ -44,4 +44,4 @@ private:
 };
 
 
-#endif //ACTION_GAME_PLAYER_H
+#endif //ACTION_GAME_PLAYERCONTROLLER_H

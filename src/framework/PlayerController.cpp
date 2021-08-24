@@ -5,21 +5,21 @@
 #include <iostream>
 #include <game/Configuration.h>
 #include <game/Stage.h>
-#include "Player.h"
+#include "PlayerController.h"
 #include "Entity.h"
 
-void Player::load() {
+void PlayerController::load() {
     playerTexture = window->loadTexture("../res/gfx/megaman-sprite.png");
     this->entity = new Entity(100, 520, playerTexture);
     this->entity->setCurrentFrame(150, 55, 50, 40);
 }
 
-void Player::render()
+void PlayerController::render()
 {
     window->render(this->entity);
 }
 
-void Player::update() {
+void PlayerController::update() {
 
     if(this->input->isWalkForward()){
         std::cout << "walking" << std::endl;
@@ -57,7 +57,7 @@ void Player::update() {
     }
 }
 
-void Player::running() {
+void PlayerController::running() {
     if(!this->isJumping) {
         this->entity->setCurrentFrame(0, 203, 50.3, 40);
         this->entity->moveFrame(this->runningCurrentFrame);
@@ -68,7 +68,7 @@ void Player::running() {
     }
 }
 
-void Player::stopped() {
+void PlayerController::stopped() {
     this->entity->setCurrentFrame(50.3 * 3, 54, 50.3, 40);
     //this->entity->moveFrame(this->runningCurrentFrame);
     //this->runningCurrentFrame++;
@@ -77,7 +77,7 @@ void Player::stopped() {
     //}
 }
 
-void Player::jumping() {
+void PlayerController::jumping() {
     if(this->jumpingCurrentFrame < this->jumpingTotalFrames) {
         this->entity->setCurrentFrame(0, 403, 50.3, 40);
         this->entity->moveFrame(this->jumpingCurrentFrame);
@@ -85,19 +85,19 @@ void Player::jumping() {
     }
 }
 
-bool Player::hasPlayerReachedTheGround() {
+bool PlayerController::hasPlayerReachedTheGround() {
     return this->entity->getY() >= 520;
 }
 
-Entity* Player::getEntity() {
+Entity* PlayerController::getEntity() {
     return this->entity;
 }
 
-SDL_Texture *Player::getPlayerTexture() {
+SDL_Texture *PlayerController::getPlayerTexture() {
     return this->playerTexture;
 }
 
-Player::Player(RenderWindow *window, Input *input): window(window), input(input) {
+PlayerController::PlayerController(RenderWindow *window, Input *input): window(window), input(input) {
     this->load();
 }
 

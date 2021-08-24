@@ -64,7 +64,7 @@ add_executable(
         ${SOURCE_FRAMEWORK_FILES}
         ${SOURCE_GRAPHIC_DIR}
         ${SOURCE_GAME_DIR}
-)
+        src/game/InputGame.cpp src/game/InputGame.h)
 
 #Link dependencies
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

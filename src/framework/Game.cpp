@@ -10,8 +10,8 @@
 #include "RenderWindow.h"
 #include "Initialization.h"
 #include "Game.h"
-#include "Input.h"
-#include "Player.h"
+#include "../game/InputGame.h"
+#include "PlayerController.h"
 #include "graphic/FrameRate.h"
 
 void Game::check() {
@@ -25,11 +25,11 @@ int Game::onExecute() {
     config.load();
 
     this->check();
-    this->input = new Input;
+    this->input = new InputGame;
 
     FrameRate frameRate;
     RenderWindow window(name, config.getScreenWidth(), config.getScreenHeight());
-    Player player1(&window, this->input);
+    PlayerController player1(&window, this->input);
     Stage stage(&window);
     stage.loadBackground();
 

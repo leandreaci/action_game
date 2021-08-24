@@ -11,7 +11,7 @@
 
 class Input {
 
-public:
+protected:
 
     struct Keys {
         bool up = false;
@@ -23,14 +23,13 @@ public:
 
     Keys ActiveKeys;
 
+public:
     Input();
     void onEvent(SDL_Event *Event);
     void printCurrentEvent();
     bool isWalkForward();
     bool isJumping();
-
     void reset();
-
     bool isWalkingBack();
 };
 
