@@ -13,15 +13,24 @@ class PlayerController {
 
 public:
     explicit PlayerController(RenderWindow *window, Input *input);
-    void load();
+
     void render();
+
     void update();
+
     void running();
+
     void stopped();
+
     void jumping();
+
     bool hasPlayerReachedTheGround();
-    Entity* getEntity();
-    SDL_Texture* getPlayerTexture();
+
+    Entity *getEntity();
+
+    SDL_Texture *getPlayerTexture();
+
+    void init();
 
 private:
     Entity *entity;

@@ -10,10 +10,12 @@
 #include "framework/RenderWindow.h"
 #include "framework/Config.h"
 #include "framework/graphic/FrameRate.h"
+#include "framework/PlayerController.h"
+#include "game/Stage.h"
 
 class Start {
 public:
-    explicit Start(RenderWindow renderWindow);
+    explicit Start(RenderWindow renderWindow, PlayerController player, Stage stage);
     int onExecute();
     void OnEvent(SDL_Event *Event);
     void OnLoop();
@@ -28,6 +30,8 @@ private:
     SDL_Event event;
     FrameRate frameRate;
     Input input;
+    PlayerController player;
+    Stage stage;
 };
 
 

@@ -11,13 +11,15 @@
 #include "framework/graphic/FrameRate.h"
 #include "Start.h"
 
-Start::Start(RenderWindow renderWindow) : renderWindow(renderWindow) {
+Start::Start(RenderWindow renderWindow, PlayerController player, Stage stage)
+        : renderWindow(renderWindow), player(player), stage(stage) {
     this->config = ConfigurationGame();
     this->config.load();
-    this->renderWindow = RenderWindow(this->config.getName(), this->config.getScreenWidth(), this->config.getScreenHeight());
     this->event = SDL_Event();
     this->frameRate = FrameRate();
     this->input = InputGame();
+    this->renderWindow = RenderWindow(this->config.getName(), this->config.getScreenWidth(), this->config.getScreenHeight());
+    this->player = PlayerController(&this->renderWindow, &this->input);
 }
 
 void Start::check() {
@@ -28,9 +30,9 @@ void Start::check() {
 int Start::onExecute() {
     this->check();
     this->renderWindow.init();
-    PlayerController player1(&this->renderWindow, &this->input);
-    Stage stage(&this->renderWindow);
-    stage.loadBackground();
+    this->player.init();
+    this->stage = Stage(&this->renderWindow);
+    this->stage.loadBackground();
 
     while (running) {
         this->frameRate.initialize();
@@ -41,8 +43,8 @@ int Start::onExecute() {
 
         this->renderWindow.clear();
         stage.render();
-        player1.render();
-        player1.update();
+        this->player.render();
+        this->player.update();
         this->renderWindow.display();
 
         OnLoop();

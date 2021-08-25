@@ -8,7 +8,10 @@
 #include "PlayerController.h"
 #include "Entity.h"
 
-void PlayerController::load() {
+PlayerController::PlayerController(RenderWindow *window, Input *input): window(window), input(input) {
+}
+
+void PlayerController::init() {
     playerTexture = window->loadTexture("../res/gfx/megaman-sprite.png");
     this->entity = new Entity(100, 520, playerTexture);
     this->entity->setCurrentFrame(150, 55, 50, 40);
@@ -96,9 +99,3 @@ Entity* PlayerController::getEntity() {
 SDL_Texture *PlayerController::getPlayerTexture() {
     return this->playerTexture;
 }
-
-PlayerController::PlayerController(RenderWindow *window, Input *input): window(window), input(input) {
-    this->load();
-}
-
-
