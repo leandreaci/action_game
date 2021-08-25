@@ -8,7 +8,7 @@
 #include <SDL.h>
 #include <framework/Start.h>
 #include "framework/Input.h"
-#include "Stage.h"
+#include "framework//Stage.h"
 
 class Game : public Start {
 

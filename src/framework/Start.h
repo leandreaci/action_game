@@ -11,7 +11,7 @@
 #include "framework/Config.h"
 #include "framework/graphic/FrameRate.h"
 #include "framework/PlayerController.h"
-#include "game/Stage.h"
+#include "framework/Stage.h"
 
 class Start {
 public:

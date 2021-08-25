@@ -3,12 +3,12 @@
 //
 
 #include <game/ConfigurationGame.h>
-#include <game/Stage.h>
 #include <game/InputGame.h>
 #include "framework/RenderWindow.h"
 #include "framework/Initialization.h"
 #include "framework/PlayerController.h"
 #include "framework/graphic/FrameRate.h"
+#include <framework/Stage.h>
 #include "Start.h"
 
 Start::Start(RenderWindow renderWindow, PlayerController player, Stage stage)

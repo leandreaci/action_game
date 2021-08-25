@@ -4,7 +4,7 @@
 
 #include <framework/RenderWindow.h>
 #include "Stage.h"
-#include "ConfigurationGame.h"
+#include "game/ConfigurationGame.h"
 
 Stage::Stage(RenderWindow *window) {
     this->window = window;

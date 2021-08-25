@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <game/ConfigurationGame.h>
-#include <game/Stage.h>
+#include <framework/Stage.h>
 #include "PlayerController.h"
 #include "Entity.h"
 
