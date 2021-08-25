@@ -7,9 +7,12 @@
 
 #include <SDL.h>
 #include "framework/Input.h"
+#include "framework/RenderWindow.h"
+#include "framework/Config.h"
 
 class Start {
 public:
+    explicit Start(RenderWindow renderWindow);
     int onExecute();
     void OnEvent(SDL_Event *Event);
     void OnLoop();
@@ -18,11 +21,10 @@ public:
 
 private:
     bool running = true;
-    const char* name = "Action Game";
-    int width = 1280;
-    int height = 720;
     void check();
     Input *input{};
+    RenderWindow renderWindow;
+    Config config;
 };
 
 

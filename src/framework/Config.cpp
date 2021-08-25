@@ -42,3 +42,9 @@ int Config::getScreenHeight() {
 int Config::getFps() {
     return stoi(this->options.find(this->FPS)->second);
 }
+
+const char* Config::getName() {
+    return (this->options.find(this->NAME)->second).c_str();
+}
+
+

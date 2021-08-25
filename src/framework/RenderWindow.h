@@ -14,6 +14,23 @@ class RenderWindow
 {
 public:
     RenderWindow(const char* p_title, int p_w, int p_h);
+    void init();
+
+    int getWidth() const;
+
+    void setWidth(int width);
+
+    int getHeight() const;
+
+    void setHeight(int height);
+
+    const char *getTitle() const;
+
+    void setTitle(const char *title);
+
+    int width;
+    int height;
+    const char* title;
     SDL_Texture* loadTexture(const char* p_filePath);
     void cleanUp();
     void clear();

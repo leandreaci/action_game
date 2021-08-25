@@ -11,6 +11,8 @@
 
 class Game : public Start {
 
+public:
+    Game() : Start(RenderWindow(nullptr, 0, 0)) {}
 };
 
 
