@@ -40,6 +40,7 @@ int Start::onExecute() {
             OnEvent(&this->event);
         }
 
+        OnCleanup();
         OnLoop();
         OnRender();
 
@@ -60,7 +61,6 @@ void Start::OnEvent(SDL_Event *Event) {
 }
 
 void Start::OnLoop() {
-    this->renderWindow.clear();
     this->stage.render();
     this->player.render();
     this->player.update();
@@ -68,7 +68,7 @@ void Start::OnLoop() {
 }
 
 void Start::OnCleanup() {
-
+    this->renderWindow.clear();
 }
 
 void Start::OnRender() {
