@@ -9,6 +9,7 @@
 #include "framework/Input.h"
 #include "framework/RenderWindow.h"
 #include "framework/Config.h"
+#include "framework/graphic/FrameRate.h"
 
 class Start {
 public:
@@ -25,6 +26,8 @@ private:
     Input *input{};
     RenderWindow renderWindow;
     Config config;
+    SDL_Event event;
+    FrameRate frameRate;
 };
 
 

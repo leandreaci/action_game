@@ -15,6 +15,8 @@ Start::Start(RenderWindow renderWindow) : renderWindow(renderWindow) {
     this->config = ConfigurationGame();
     this->config.load();
     this->renderWindow = RenderWindow(this->config.getName(), this->config.getScreenWidth(), this->config.getScreenHeight());
+    this->event = SDL_Event();
+    this->frameRate = FrameRate();
 }
 
 void Start::check() {
@@ -23,22 +25,20 @@ void Start::check() {
 }
 
 int Start::onExecute() {
-    SDL_Event Event;
+
 
     this->check();
     this->input = new InputGame;
-
-    FrameRate frameRate;
     this->renderWindow.init();
     PlayerController player1(&this->renderWindow, this->input);
     Stage stage(&this->renderWindow);
     stage.loadBackground();
 
     while (running) {
-        frameRate.initialize();
+        this->frameRate.initialize();
 
-        while (SDL_PollEvent(&Event)) {
-            OnEvent(&Event);
+        while (SDL_PollEvent(&this->event)) {
+            OnEvent(&this->event);
         }
 
         this->renderWindow.clear();
@@ -50,7 +50,7 @@ int Start::onExecute() {
         OnLoop();
         OnRender();
 
-        frameRate.calculate();
+        this->frameRate.calculate();
         //        std::cout << frameRate.getFrameRate() << std::endl;
     }
 
