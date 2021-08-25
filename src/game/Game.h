@@ -6,7 +6,7 @@
 #define INC_ACTION_GAME_GAME_H
 
 #include <SDL.h>
-#include "Input.h"
+#include "framework/Input.h"
 
 class Game {
 public:

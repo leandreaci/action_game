@@ -5,12 +5,12 @@
 
 #include <game/ConfigurationGame.h>
 #include <game/Stage.h>
-#include "../game/InputGame.h"
-#include "RenderWindow.h"
-#include "Initialization.h"
+#include "InputGame.h"
+#include "framework/RenderWindow.h"
+#include "framework/Initialization.h"
 #include "Game.h"
-#include "PlayerController.h"
-#include "graphic/FrameRate.h"
+#include "framework/PlayerController.h"
+#include "framework/graphic/FrameRate.h"
 
 void Game::check() {
     Initialization init;
