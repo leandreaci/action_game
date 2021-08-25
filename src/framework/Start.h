@@ -23,11 +23,11 @@ public:
 private:
     bool running = true;
     void check();
-    Input *input{};
     RenderWindow renderWindow;
     Config config;
     SDL_Event event;
     FrameRate frameRate;
+    Input input;
 };
 
 

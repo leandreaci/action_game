@@ -17,6 +17,7 @@ Start::Start(RenderWindow renderWindow) : renderWindow(renderWindow) {
     this->renderWindow = RenderWindow(this->config.getName(), this->config.getScreenWidth(), this->config.getScreenHeight());
     this->event = SDL_Event();
     this->frameRate = FrameRate();
+    this->input = InputGame();
 }
 
 void Start::check() {
@@ -25,12 +26,9 @@ void Start::check() {
 }
 
 int Start::onExecute() {
-
-
     this->check();
-    this->input = new InputGame;
     this->renderWindow.init();
-    PlayerController player1(&this->renderWindow, this->input);
+    PlayerController player1(&this->renderWindow, &this->input);
     Stage stage(&this->renderWindow);
     stage.loadBackground();
 
@@ -63,7 +61,7 @@ void Start::OnEvent(SDL_Event *Event) {
         running = false;
     }
 
-    input->onEvent(Event);
+    this->input.onEvent(Event);
 }
 
 void Start::OnLoop() {
