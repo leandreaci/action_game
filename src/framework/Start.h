@@ -21,6 +21,7 @@ public:
     void OnLoop();
     void OnCleanup();
     void OnRender();
+    void BeforeLoop();
 
 private:
     bool running = true;

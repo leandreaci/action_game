@@ -30,9 +30,8 @@ void Start::check() {
 int Start::onExecute() {
     this->check();
     this->renderWindow.init();
-    this->player.init();
-    this->stage = Stage(&this->renderWindow);
-    this->stage.loadBackground();
+
+    BeforeLoop();
 
     while (running) {
         this->frameRate.initialize();
@@ -40,12 +39,6 @@ int Start::onExecute() {
         while (SDL_PollEvent(&this->event)) {
             OnEvent(&this->event);
         }
-
-        this->renderWindow.clear();
-        stage.render();
-        this->player.render();
-        this->player.update();
-        this->renderWindow.display();
 
         OnLoop();
         OnRender();
@@ -67,7 +60,11 @@ void Start::OnEvent(SDL_Event *Event) {
 }
 
 void Start::OnLoop() {
-
+    this->renderWindow.clear();
+    this->stage.render();
+    this->player.render();
+    this->player.update();
+    this->renderWindow.display();
 }
 
 void Start::OnCleanup() {
@@ -76,4 +73,10 @@ void Start::OnCleanup() {
 
 void Start::OnRender() {
 
+}
+
+void Start::BeforeLoop() {
+    this->player.init();
+    this->stage = Stage(&this->renderWindow);
+    this->stage.loadBackground();
 }
