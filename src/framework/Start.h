@@ -18,10 +18,10 @@ public:
     explicit Start(RenderWindow renderWindow, PlayerController player, Stage stage);
     int onExecute();
     void OnEvent(SDL_Event *Event);
-    void OnLoop();
-    void OnCleanup();
-    void OnRender();
-    void BeforeLoop();
+    virtual void OnLoop();
+    virtual void OnCleanup();
+    virtual void OnRender();
+    virtual void BeforeLoop();
 
 private:
     bool running = true;
