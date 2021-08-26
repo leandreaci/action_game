@@ -34,7 +34,13 @@ void PlayerController::update() {
         this->entity->setX( this->entity->getX() - velocity);
         this->entity->flipHorizontal(true);
         this->running();
-    } else {
+    } else if(this->input->isFire()) {
+        std::cout << "Fire" << std::endl;
+
+        this->entity->setCurrentFrameX( 0);
+        this->entity->setCurrentFrameY( 50 * 2);
+    }
+    else {
         if(!this->isJumping) {
             this->stopped();
         }

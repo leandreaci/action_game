@@ -26,12 +26,18 @@ public:
     void flipHorizontalVertical(bool val);
     void flipHorizontal(bool val);
     void flipVertical(bool val);
-private:
+    void setCurrentFrameX(int x);
+    void setCurrentFrameY(int y);
+
+protected:
     bool flipEntityHorizontal = false;
     bool flipEntityVertical = false;
     float x, y;
     SDL_Rect currentFrame{};
     SDL_Texture* texture;
+
+
+
 };
 
 #endif //INC_2D_RGP_EXAMPLE_SDL2_ENTITY_H

@@ -19,6 +19,7 @@ protected:
         bool left = false;
         bool right = false;
         bool space = false;
+        bool fire = false;
     };
 
     Keys ActiveKeys;
@@ -31,6 +32,8 @@ public:
     bool isJumping();
     void reset();
     bool isWalkingBack();
+
+    bool isFire();
 };
 
 

@@ -40,6 +40,15 @@ void Entity::setCurrentFrame(int x, int y, int w, int h) {
     this->currentFrame.h = h;
 }
 
+void Entity::setCurrentFrameX(int x) {
+    this->currentFrame.x = x;
+}
+
+void Entity::setCurrentFrameY(int y) {
+    this->currentFrame.y = y;
+}
+
+
 void Entity::moveFrame(int frame) {
     this->currentFrame.x = (frame * this->currentFrame.w);
 }
