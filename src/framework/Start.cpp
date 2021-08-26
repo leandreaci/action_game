@@ -29,7 +29,6 @@ void Start::check() {
 
 int Start::onExecute() {
     this->check();
-    this->renderWindow.init();
 
     BeforeLoop();
 
@@ -45,7 +44,6 @@ int Start::onExecute() {
         OnRender();
 
         this->frameRate.calculate();
-        //        std::cout << frameRate.getFrameRate() << std::endl;
     }
 
     return 0;

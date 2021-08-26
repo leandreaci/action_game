@@ -16,16 +16,24 @@
 class Start {
 public:
     explicit Start(RenderWindow renderWindow, PlayerController player, Stage stage);
+
     int onExecute();
+
     void OnEvent(SDL_Event *Event);
+
     virtual void OnLoop();
+
     virtual void OnCleanup();
+
     virtual void OnRender();
+
     virtual void BeforeLoop();
 
 private:
     bool running = true;
+
     void check();
+
     RenderWindow renderWindow;
     Config config;
     SDL_Event event;
@@ -34,7 +42,6 @@ private:
     PlayerController player;
     Stage stage;
 };
-
 
 
 #endif //ACTION_GAME_START_H
