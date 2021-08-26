@@ -15,12 +15,8 @@ public:
     Entity *entity;
     SDL_Texture *backgroundTexture;
     RenderWindow *window;
-
-    void loadBackground();
-
     void render();
-
-
+    void loadBackground(const char *path);
 };
 
 

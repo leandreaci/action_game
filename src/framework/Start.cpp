@@ -78,5 +78,5 @@ void Start::OnRender() {
 void Start::BeforeLoop() {
     this->player.init();
     this->stage = Stage(&this->renderWindow);
-    this->stage.loadBackground();
+    this->stage.loadBackground("../res/gfx/stage_1.png");
 }
