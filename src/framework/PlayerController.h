@@ -6,13 +6,15 @@
 #define ACTION_GAME_PLAYERCONTROLLER_H
 
 #include "RenderWindow.h"
+#include "Config.h"
 #include "Entity.h"
 #include "Input.h"
 
 class PlayerController {
 
 public:
-    explicit PlayerController(RenderWindow *window, Input *input);
+
+    PlayerController(RenderWindow *window, Input *input);
 
     void render();
 
@@ -26,27 +28,27 @@ public:
 
     virtual bool hasPlayerReachedTheGround();
 
-    void init(const char* name);
+    void init(const char *name);
 
 protected:
     Entity *entity;
     SDL_Texture *playerTexture;
+
+
     RenderWindow *window;
     Input *input;
-    float velocity = 20;
+    Config config;
 
+    int sprintWidth;
+    int sprintHeight;
+    float velocity = 20;
     float gravity = 9;
     float jumpForce = 160;
-
-    bool isJumping = false;
-
     float runningCurrentFrame = 0;
     float runningTotalFrames = 8;
-
     float jumpingCurrentFrame = 0;
     float jumpingTotalFrames = 7;
-
-    SDL_Texture * loadTexture(const char *name);
+    bool isJumping = false;
 
     Entity *newEntity(const char *name);
 
@@ -55,6 +57,12 @@ protected:
     void setCurrentFrameX(int x);
 
     void setCurrentFrameY(int y);
+
+    SDL_Texture *loadTexture(const char *name);
+
+    int getSprintWidth(int position = 1);
+
+    int getSprintHeight(int position = 1);
 };
 
 

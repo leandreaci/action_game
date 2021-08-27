@@ -47,4 +47,14 @@ const char* Config::getName() {
     return (this->options.find(this->NAME)->second).c_str();
 }
 
+int Config::getSprintWidth() {
+    return stoi(this->options.find(this->SPRINT_WIDTH)->second);
+}
+
+int Config::getSprintHeight() {
+    return stoi(this->options.find(this->SPRINT_HEIGHT)->second);
+}
+
+
+
 

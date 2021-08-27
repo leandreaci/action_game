@@ -2,18 +2,29 @@
 // Created by leandro on 02/05/2020.
 //
 
-#include <iostream>
-#include <game/ConfigurationGame.h>
+#include "Config.h"
 #include <framework/Stage.h>
 #include "PlayerController.h"
 #include "Entity.h"
 
 PlayerController::PlayerController(RenderWindow *window, Input *input): window(window), input(input) {
+    config = Config();
+    config.load();
+    sprintWidth = config.getSprintWidth();
+    sprintHeight = config.getSprintHeight();
 }
 
 void PlayerController::init(const char* name) {
     this->entity = newEntity(name);
-    this->setCurrentFrame(150, 55, 50, 40);
+    this->setCurrentFrame(150, 55, getSprintWidth(), getSprintHeight());
+}
+
+int PlayerController::getSprintWidth(int position) {
+    return this->sprintWidth * position;
+}
+
+int PlayerController::getSprintHeight(int position) {
+    return this->sprintHeight * position;
 }
 
 void PlayerController::setCurrentFrame(int x, int y, int w, int h)
@@ -47,7 +58,7 @@ void PlayerController::render()
 
 void PlayerController::running() {
     if(!this->isJumping) {
-        this->setCurrentFrame(0, 203, 50.3, 40);
+        this->setCurrentFrame(0, 203, sprintWidth, sprintHeight);
         this->entity->moveFrame(this->runningCurrentFrame);
         this->runningCurrentFrame++;
         if(this->runningCurrentFrame >= this->runningTotalFrames) {
@@ -57,17 +68,12 @@ void PlayerController::running() {
 }
 
 void PlayerController::stopped() {
-    this->setCurrentFrame(50.3 * 3, 54, 50.3, 40);
-    //this->entity->moveFrame(this->runningCurrentFrame);
-    //this->runningCurrentFrame++;
-    //if(this->runningCurrentFrame >= this->runningTotalFrames) {
-    //    this->runningCurrentFrame = 0;
-    //}
+    this->setCurrentFrame(sprintWidth * 3, 54, sprintWidth, sprintHeight);
 }
 
 void PlayerController::jumping() {
     if(this->jumpingCurrentFrame < this->jumpingTotalFrames) {
-        this->setCurrentFrame(0, 403, 50.3, 40);
+        this->setCurrentFrame(0, 403, sprintWidth, sprintHeight);
         this->entity->moveFrame(this->jumpingCurrentFrame);
         this->jumpingCurrentFrame++;
     }
