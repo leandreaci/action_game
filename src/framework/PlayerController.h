@@ -30,7 +30,7 @@ public:
 
     SDL_Texture *getPlayerTexture();
 
-    void init();
+    void init(const char* name);
 
 private:
     Entity *entity;
@@ -50,6 +50,11 @@ private:
     float jumpingCurrentFrame = 0;
     float jumpingTotalFrames = 7;
 
+    SDL_Texture * loadTexture(const char *name);
+
+    Entity *newEntity(const char *name);
+
+    void setCurrentFrame(int x, int y, int w, int h);
 };
 
 

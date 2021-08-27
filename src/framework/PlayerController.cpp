@@ -11,10 +11,22 @@
 PlayerController::PlayerController(RenderWindow *window, Input *input): window(window), input(input) {
 }
 
-void PlayerController::init() {
-    playerTexture = window->loadTexture("../res/gfx/megaman-sprite.png");
-    this->entity = new Entity(100, 520, playerTexture);
-    this->entity->setCurrentFrame(150, 55, 50, 40);
+void PlayerController::init(const char* name) {
+    this->entity = newEntity(name);
+    this->setCurrentFrame(150, 55, 50, 40);
+}
+
+void PlayerController::setCurrentFrame(int x, int y, int w, int h)
+{
+    this->entity->setCurrentFrame(x, y, w ,h);
+}
+
+Entity * PlayerController::newEntity(const char* name) {
+    return new Entity(100, 520, loadTexture(name));
+}
+
+SDL_Texture * PlayerController::loadTexture(const char* name) {
+    return window->loadTexture(name);
 }
 
 void PlayerController::render()
