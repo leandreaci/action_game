@@ -15,7 +15,7 @@ void Start::BeforeLoop() {
     this->renderWindow.init();
     this->player.init("../res/gfx/megaman-sprite.png");
     this->stage = Stage(&this->renderWindow);
-    this->stage.loadBackground("../res/gfx/stage_1.png");
+    this->stage.init("../res/gfx/stage_1.png");
 }
 
 
