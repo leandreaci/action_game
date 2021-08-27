@@ -10,16 +10,6 @@ Stage::Stage(RenderWindow *window) {
     this->window = window;
 }
 
-void Stage::loadBackground(const char* path) {
-
-    Config config;
-    config.load();
-
-    backgroundTexture = this->window->loadTexture(path);
-    entity = new Entity(-200, -400, backgroundTexture);
-    entity->setCurrentFrame(0, 0, config.getScreenWidth(), config.getScreenHeight());
-}
-
 void Stage::render() {
     window->render(this->entity);
 }

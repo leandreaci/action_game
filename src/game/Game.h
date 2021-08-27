@@ -8,12 +8,13 @@
 #include <SDL.h>
 #include <framework/Start.h>
 #include "framework/Input.h"
-#include "framework//Stage.h"
+#include "framework/Stage.h"
+#include "game/Player.h"
 
 class Game : public Start {
 
 public:
-    Game() : Start(RenderWindow(nullptr, 0, 0), PlayerController(nullptr, nullptr), Stage(nullptr)) {}
+    Game() : Start(RenderWindow(nullptr, 0, 0), Player(nullptr, nullptr), Stage(nullptr)) {}
 };
 
 

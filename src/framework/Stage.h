@@ -16,7 +16,6 @@ public:
     SDL_Texture *backgroundTexture;
     RenderWindow *window;
     void render();
-    void loadBackground(const char *path);
     void init(const char *path);
 };
 
