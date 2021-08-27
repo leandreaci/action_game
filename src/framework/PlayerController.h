@@ -76,6 +76,10 @@ protected:
     void fire();
 
     void flipHorizontal(bool on = false);
+
+    bool isWalkingForward();
+
+    bool isWalkingBack();
 };
 
 

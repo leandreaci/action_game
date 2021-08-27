@@ -105,3 +105,11 @@ void PlayerController::fire() {
 void PlayerController::flipHorizontal(bool on) {
     this->entity->flipHorizontal(on);
 }
+
+bool PlayerController::isWalkingForward() {
+    this->input->isWalkForward();
+}
+
+bool PlayerController::isWalkingBack() {
+    this->input->isWalkingBack();
+}

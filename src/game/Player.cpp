@@ -6,11 +6,11 @@
 
 void PlayerController::update() {
 
-    if(this->input->isWalkForward()){
+    if(this->isWalkingForward()){
         this->moveForward();
         this->flipHorizontal();
         this->running();
-    } else if(this->input->isWalkingBack()){
+    } else if(this->isWalkingBack()){
         this->moveBack();
         this->flipHorizontal(true);
         this->running();
