@@ -21,6 +21,16 @@ void PlayerController::setCurrentFrame(int x, int y, int w, int h)
     this->entity->setCurrentFrame(x, y, w ,h);
 }
 
+void PlayerController::setCurrentFrameX(int x)
+{
+    this->entity->setCurrentFrameX(x);
+}
+
+void PlayerController::setCurrentFrameY(int y)
+{
+    this->entity->setCurrentFrameY(y);
+}
+
 Entity * PlayerController::newEntity(const char* name) {
     return new Entity(100, 520, loadTexture(name));
 }
@@ -49,8 +59,8 @@ void PlayerController::update() {
     } else if(this->input->isFire()) {
         std::cout << "Fire" << std::endl;
 
-        this->entity->setCurrentFrameX( 0);
-        this->entity->setCurrentFrameY( 50 * 2);
+        this->setCurrentFrameX( 0);
+        this->setCurrentFrameY( 50 * 2);
     }
     else {
         if(!this->isJumping) {
@@ -80,7 +90,7 @@ void PlayerController::update() {
 
 void PlayerController::running() {
     if(!this->isJumping) {
-        this->entity->setCurrentFrame(0, 203, 50.3, 40);
+        this->setCurrentFrame(0, 203, 50.3, 40);
         this->entity->moveFrame(this->runningCurrentFrame);
         this->runningCurrentFrame++;
         if(this->runningCurrentFrame >= this->runningTotalFrames) {
@@ -90,7 +100,7 @@ void PlayerController::running() {
 }
 
 void PlayerController::stopped() {
-    this->entity->setCurrentFrame(50.3 * 3, 54, 50.3, 40);
+    this->setCurrentFrame(50.3 * 3, 54, 50.3, 40);
     //this->entity->moveFrame(this->runningCurrentFrame);
     //this->runningCurrentFrame++;
     //if(this->runningCurrentFrame >= this->runningTotalFrames) {
@@ -100,7 +110,7 @@ void PlayerController::stopped() {
 
 void PlayerController::jumping() {
     if(this->jumpingCurrentFrame < this->jumpingTotalFrames) {
-        this->entity->setCurrentFrame(0, 403, 50.3, 40);
+        this->setCurrentFrame(0, 403, 50.3, 40);
         this->entity->moveFrame(this->jumpingCurrentFrame);
         this->jumpingCurrentFrame++;
     }

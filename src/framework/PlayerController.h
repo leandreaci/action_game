@@ -55,6 +55,10 @@ private:
     Entity *newEntity(const char *name);
 
     void setCurrentFrame(int x, int y, int w, int h);
+
+    void setCurrentFrameX(int x);
+
+    void setCurrentFrameY(int y);
 };
 
 
