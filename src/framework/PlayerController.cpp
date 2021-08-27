@@ -2,6 +2,7 @@
 // Created by leandro on 02/05/2020.
 //
 
+#include <iostream>
 #include "Config.h"
 #include <framework/Stage.h>
 #include "PlayerController.h"
@@ -12,11 +13,13 @@ PlayerController::PlayerController(RenderWindow *window, Input *input) : window(
     config.load();
     sprintWidth = config.getSprintWidth();
     sprintHeight = config.getSprintHeight();
+    this->shoot = Shoot();
+    this->shoot.setWindow(window);
 }
 
 void PlayerController::init(const char *name) {
     this->entity = newEntity(name);
-    this->setCurrentFrame(getSprintWidth(3), getSprintHeight(), getSprintWidth(), getSprintHeight());
+    this->shoot.init("../res/gfx/shoot_10.png");
 }
 
 int PlayerController::getSprintWidth(int position) {
@@ -49,6 +52,7 @@ SDL_Texture *PlayerController::loadTexture(const char *name) {
 
 void PlayerController::render() {
     window->render(this->entity);
+    this->shoot.render();
 }
 
 void PlayerController::running() {
@@ -100,6 +104,16 @@ void PlayerController::moveBack() {
 void PlayerController::fire() {
     this->setCurrentFrameX( 0);
     this->setCurrentFrameY(getSprintHeight(2));
+    this->shoot.fire(this->entity->getX() + 170, this->entity->getY() + 65);
+
+//    SDL_Texture *shootTexture = this->window->loadTexture("../res/gfx/shoot_10.png");
+//    Entity *shootEntity = new Entity(0, 0, shootTexture);
+//    shootEntity->setCurrentFrame(0, 0, 10, 10);
+//    shootEntity->setX(this->entity->getX() + 170);
+//    shootEntity->setY(this->entity->getY() + 65);
+//    this->window->render(shootEntity);
+
+//    delete shootEntity;
 }
 
 void PlayerController::flipHorizontal(bool on) {
@@ -112,4 +126,8 @@ bool PlayerController::isWalkingForward() {
 
 bool PlayerController::isWalkingBack() {
     this->input->isWalkingBack();
+}
+
+void PlayerController::setWindow(RenderWindow *window) {
+    this->window = window;
 }

@@ -9,6 +9,7 @@
 #include "Config.h"
 #include "Entity.h"
 #include "Input.h"
+#include "Shoot.h"
 
 class PlayerController {
 
@@ -33,6 +34,8 @@ public:
 
     void init(const char *name);
 
+    void setWindow(RenderWindow *window);
+
 protected:
     Entity *entity;
     SDL_Texture *playerTexture;
@@ -41,6 +44,7 @@ protected:
     RenderWindow *window;
     Input *input;
     Config config;
+    Shoot shoot;
 
     int sprintWidth;
     int sprintHeight;
@@ -80,6 +84,8 @@ protected:
     bool isWalkingForward();
 
     bool isWalkingBack();
+
+
 };
 
 

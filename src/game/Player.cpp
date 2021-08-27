@@ -6,6 +6,8 @@
 
 void PlayerController::update() {
 
+    this->shoot.update();
+
     if(this->isWalkingForward()){
         this->moveForward();
         this->flipHorizontal();
