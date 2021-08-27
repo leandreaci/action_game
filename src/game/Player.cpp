@@ -16,7 +16,7 @@ void PlayerController::update() {
         this->running();
     } else if(this->input->isFire()) {
         this->setCurrentFrameX( 0);
-        this->setCurrentFrameY( 50 * 2);
+        this->setCurrentFrameY(getSprintHeight(2));
     }
     else {
         if(!this->isJumping) {
