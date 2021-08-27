@@ -16,23 +16,19 @@ public:
 
     void render();
 
-    void update();
+    virtual void update();
 
-    void running();
+    virtual void running();
 
-    void stopped();
+    virtual void stopped();
 
-    void jumping();
+    virtual void jumping();
 
-    bool hasPlayerReachedTheGround();
-
-    Entity *getEntity();
-
-    SDL_Texture *getPlayerTexture();
+    virtual bool hasPlayerReachedTheGround();
 
     void init(const char* name);
 
-private:
+protected:
     Entity *entity;
     SDL_Texture *playerTexture;
     RenderWindow *window;

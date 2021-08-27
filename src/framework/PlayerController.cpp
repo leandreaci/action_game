@@ -44,49 +44,6 @@ void PlayerController::render()
     window->render(this->entity);
 }
 
-void PlayerController::update() {
-
-    if(this->input->isWalkForward()){
-        std::cout << "walking" << std::endl;
-        this->entity->setX( this->entity->getX() + velocity);
-        this->entity->flipHorizontal(false);
-        this->running();
-    } else if(this->input->isWalkingBack()){
-        std::cout << "walking" << std::endl;
-        this->entity->setX( this->entity->getX() - velocity);
-        this->entity->flipHorizontal(true);
-        this->running();
-    } else if(this->input->isFire()) {
-        std::cout << "Fire" << std::endl;
-
-        this->setCurrentFrameX( 0);
-        this->setCurrentFrameY( 50 * 2);
-    }
-    else {
-        if(!this->isJumping) {
-            this->stopped();
-        }
-    }
-
-    if(this->input->isJumping()){
-        std::cout << "jumping" << std::endl;
-        this->isJumping = true;
-    }
-
-    if(this->isJumping) {
-        this->entity->setY( this->entity->getY() - this->jumpForce * 1.8);
-        this->jumpForce = this->jumpForce - (this->entity->getY() * 0.009);
-        this->jumping();
-    }
-
-    if(this->hasPlayerReachedTheGround()) {
-        this->isJumping = false;
-        this->entity->setY(520);
-        this->jumpForce = this->entity->getY() * 0.05;
-        this->jumpingCurrentFrame = 0;
-//        std::cout << "reached the ground" << std::endl;
-    }
-}
 
 void PlayerController::running() {
     if(!this->isJumping) {
@@ -118,12 +75,4 @@ void PlayerController::jumping() {
 
 bool PlayerController::hasPlayerReachedTheGround() {
     return this->entity->getY() >= 520;
-}
-
-Entity* PlayerController::getEntity() {
-    return this->entity;
-}
-
-SDL_Texture *PlayerController::getPlayerTexture() {
-    return this->playerTexture;
 }
