@@ -7,16 +7,15 @@
 void PlayerController::update() {
 
     if(this->input->isWalkForward()){
-        this->entity->setX( this->entity->getX() + velocity);
-        this->entity->flipHorizontal(false);
+        this->moveForward();
+        this->flipHorizontal();
         this->running();
     } else if(this->input->isWalkingBack()){
-        this->entity->setX( this->entity->getX() - velocity);
-        this->entity->flipHorizontal(true);
+        this->moveBack();
+        this->flipHorizontal(true);
         this->running();
     } else if(this->input->isFire()) {
-        this->setCurrentFrameX( 0);
-        this->setCurrentFrameY(getSprintHeight(2));
+        this->fire();
     }
     else {
         if(!this->isJumping) {

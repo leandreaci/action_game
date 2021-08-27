@@ -77,3 +77,31 @@ void PlayerController::jumping() {
 bool PlayerController::hasPlayerReachedTheGround() {
     return this->entity->getY() >= getSprintHeight(10);
 }
+
+
+void PlayerController::move(int direction) {
+    if(direction == MOVE_FORWARD)
+    {
+        this->entity->setX( this->entity->getX() + velocity);
+    }else
+    {
+        this->entity->setX( this->entity->getX() - velocity);
+    }
+}
+
+void PlayerController::moveForward() {
+    this->move(MOVE_FORWARD);
+}
+
+void PlayerController::moveBack() {
+    this->move(MOVE_BACK);
+}
+
+void PlayerController::fire() {
+    this->setCurrentFrameX( 0);
+    this->setCurrentFrameY(getSprintHeight(2));
+}
+
+void PlayerController::flipHorizontal(bool on) {
+    this->entity->flipHorizontal(on);
+}

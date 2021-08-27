@@ -16,6 +16,9 @@ public:
 
     PlayerController(RenderWindow *window, Input *input);
 
+    int MOVE_FORWARD = 1;
+    int MOVE_BACK = 2;
+
     void render();
 
     virtual void update();
@@ -63,6 +66,16 @@ protected:
     int getSprintWidth(int position = 1);
 
     int getSprintHeight(int position = 1);
+
+    void move(int direction);
+
+    void moveForward();
+
+    void moveBack();
+
+    void fire();
+
+    void flipHorizontal(bool on = false);
 };
 
 
