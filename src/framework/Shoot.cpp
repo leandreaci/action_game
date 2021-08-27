@@ -12,7 +12,7 @@ void Shoot::update() {
 
     if(this->shootEntity->getX() > 0)
     {
-        this->shootEntity->setX(this->shootEntity->getX() + 50);
+        this->shootEntity->setX(  this->shootEntity->getX() + (50 * this->direction));
     }
 
     if(this->shootEntity->getX() > 1280)
@@ -27,7 +27,17 @@ void Shoot::setWindow(RenderWindow *window) {
 }
 
 void Shoot::fire(int x, int y) {
-    this->shootEntity->setX(x);
+
+    int diffPosition;
+
+    if(this->direction == 1)
+    {
+        diffPosition = 0;
+    }else{
+        diffPosition = -180;
+    }
+
+    this->shootEntity->setX(x + diffPosition);
     this->shootEntity->setY(y);
 }
 
@@ -35,4 +45,14 @@ void Shoot::init(const char* path) {
     SDL_Texture *shootTexture = this->window->loadTexture(path);
     this->shootEntity = new Entity(0, 0, shootTexture);
     this->shootEntity->setCurrentFrame(this->shootEntity->getX(), this->shootEntity->getY(), 10, 10);
+}
+
+void Shoot::setDirection(bool direction) {
+    if(direction){
+        this->direction = -1;
+    }else{
+        this->direction = 1;
+    }
+
+
 }

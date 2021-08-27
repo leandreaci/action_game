@@ -17,7 +17,7 @@ void PlayerController::update() {
         this->flipHorizontal(true);
         this->running();
     } else if(this->input->isFire()) {
-        this->fire();
+        this->fire(this->entity->isFlipEntityHorizontal());
     }
     else {
         if(!this->isJumping) {

@@ -77,7 +77,7 @@ protected:
 
     void moveBack();
 
-    void fire();
+    void fire(bool direction);
 
     void flipHorizontal(bool on = false);
 

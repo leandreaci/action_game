@@ -87,3 +87,11 @@ void Entity::flipHorizontal(bool val) {
 void Entity::flipVertical(bool val) {
     this->flipEntityVertical = val;
 }
+
+bool Entity::isFlipEntityHorizontal() const {
+    return flipEntityHorizontal;
+}
+
+bool Entity::isFlipEntityVertical() const {
+    return flipEntityVertical;
+}

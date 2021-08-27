@@ -31,6 +31,12 @@ public:
 
 protected:
     bool flipEntityHorizontal = false;
+public:
+    bool isFlipEntityHorizontal() const;
+
+    bool isFlipEntityVertical() const;
+
+protected:
     bool flipEntityVertical = false;
     float x, y;
     SDL_Rect currentFrame{};

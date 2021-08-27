@@ -101,19 +101,13 @@ void PlayerController::moveBack() {
     this->move(MOVE_BACK);
 }
 
-void PlayerController::fire() {
+void PlayerController::fire(bool direction) {
     this->setCurrentFrameX( 0);
     this->setCurrentFrameY(getSprintHeight(2));
+
+    this->shoot.setDirection(direction);
+
     this->shoot.fire(this->entity->getX() + 170, this->entity->getY() + 65);
-
-//    SDL_Texture *shootTexture = this->window->loadTexture("../res/gfx/shoot_10.png");
-//    Entity *shootEntity = new Entity(0, 0, shootTexture);
-//    shootEntity->setCurrentFrame(0, 0, 10, 10);
-//    shootEntity->setX(this->entity->getX() + 170);
-//    shootEntity->setY(this->entity->getY() + 65);
-//    this->window->render(shootEntity);
-
-//    delete shootEntity;
 }
 
 void PlayerController::flipHorizontal(bool on) {

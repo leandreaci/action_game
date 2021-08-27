@@ -13,6 +13,7 @@ class Shoot {
 public:
     Entity *shootEntity;
     RenderWindow *window;
+    int direction = 1;
 
     void init(const char* path);
 
@@ -23,6 +24,8 @@ public:
     void setWindow(RenderWindow *window);
 
     void fire(int x, int y);
+
+    void setDirection(bool direction);
 
 
 };
