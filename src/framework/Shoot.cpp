@@ -10,9 +10,16 @@ void Shoot::render() {
 
 void Shoot::update() {
 
+    int sprintHeight = 50;
+
     if(this->shootEntity->getX() > 0)
     {
-        this->shootEntity->setX(  this->shootEntity->getX() + (50 * this->direction));
+        if(this->direction == this->MOVE_FORWARD)
+        {
+            this->shootEntity->setX(  this->shootEntity->getX() + (sprintHeight));
+        }else{
+            this->shootEntity->setX(  this->shootEntity->getX() + sprintHeight * (-1));
+        }
     }
 
     if(this->shootEntity->getX() > 1280)
@@ -47,12 +54,6 @@ void Shoot::init(const char* path) {
     this->shootEntity->setCurrentFrame(this->shootEntity->getX(), this->shootEntity->getY(), 10, 10);
 }
 
-void Shoot::setDirection(bool direction) {
-    if(direction){
-        this->direction = -1;
-    }else{
-        this->direction = 1;
-    }
-
-
+void Shoot::setDirection(int direction) {
+    this->direction = direction;
 }

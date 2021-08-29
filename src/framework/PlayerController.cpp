@@ -11,10 +11,11 @@
 PlayerController::PlayerController(RenderWindow *window, Input *input) : window(window), input(input) {
     config = Config();
     config.load();
-    sprintWidth = config.getSprintWidth();
-    sprintHeight = config.getSprintHeight();
     this->shoot = Shoot();
     this->shoot.setWindow(window);
+    this->sprintWidth = config.getSprintWidth();
+    this->sprintHeight = config.getSprintHeight();
+    this->current_direction = MOVE_FORWARD;
 }
 
 void PlayerController::init(const char *name) {
@@ -94,18 +95,20 @@ void PlayerController::move(int direction) {
 }
 
 void PlayerController::moveForward() {
+    this->current_direction = MOVE_FORWARD;
     this->move(MOVE_FORWARD);
 }
 
 void PlayerController::moveBack() {
+    this->current_direction = MOVE_BACK;
     this->move(MOVE_BACK);
 }
 
-void PlayerController::fire(bool direction) {
+void PlayerController::fire() {
     this->setCurrentFrameX( 0);
     this->setCurrentFrameY(getSprintHeight(2));
 
-    this->shoot.setDirection(direction);
+    this->shoot.setDirection(this->current_direction);
 
     this->shoot.fire(this->entity->getX() + 170, this->entity->getY() + 65);
 }

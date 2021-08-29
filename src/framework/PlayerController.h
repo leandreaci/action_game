@@ -19,6 +19,7 @@ public:
 
     int MOVE_FORWARD = 1;
     int MOVE_BACK = 2;
+    int current_direction;
 
     void render();
 
@@ -77,7 +78,7 @@ protected:
 
     void moveBack();
 
-    void fire(bool direction);
+    void fire();
 
     void flipHorizontal(bool on = false);
 

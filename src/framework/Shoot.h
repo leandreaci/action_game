@@ -14,6 +14,8 @@ public:
     Entity *shootEntity;
     RenderWindow *window;
     int direction = 1;
+    int MOVE_FORWARD = 1;
+    int MOVE_BACK = 2;
 
     void init(const char* path);
 
@@ -25,7 +27,7 @@ public:
 
     void fire(int x, int y);
 
-    void setDirection(bool direction);
+    void setDirection(int direction);
 
 
 };
