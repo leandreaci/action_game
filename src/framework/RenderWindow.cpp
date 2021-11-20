@@ -52,13 +52,10 @@ void RenderWindow::render(Entity* entity)
 
     SDL_RendererFlip flip = (SDL_RendererFlip)SDL_FLIP_NONE;
     if(entity->flipHorizontalVertical()) {
-        std::cout << "flipHorizontalVertical" << std::endl;
-        flip = (SDL_RendererFlip)(SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL); 
+        flip = (SDL_RendererFlip)(SDL_FLIP_HORIZONTAL | SDL_FLIP_VERTICAL);
     }else if(entity->flipVertical()) {
-        std::cout << "flipVertical" << std::endl;
-        flip = (SDL_RendererFlip)SDL_FLIP_VERTICAL; 
+        flip = (SDL_RendererFlip)SDL_FLIP_VERTICAL;
     }else if(entity->flipHorizontal()) {
-        std::cout << "flipHorizontal" << std::endl;
         flip = (SDL_RendererFlip)SDL_FLIP_HORIZONTAL;
     }
 

@@ -2,7 +2,6 @@
 // Created by leandro on 02/05/2020.
 //
 
-#include <iostream>
 #include "Config.h"
 #include <framework/Stage.h>
 #include "PlayerController.h"
